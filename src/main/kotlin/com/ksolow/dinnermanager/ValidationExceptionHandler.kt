@@ -1,6 +1,6 @@
 package com.ksolow.dinnermanager
 
-import com.ksolow.dinnermanager.entity.Error
+import com.ksolow.dinnermanager.entity.ErrorResponse
 import org.slf4j.LoggerFactory.getLogger
 import org.springframework.http.HttpStatus.BAD_REQUEST
 import org.springframework.http.ResponseEntity
@@ -18,12 +18,12 @@ class ValidationExceptionHandler {
     @ExceptionHandler(HttpMessageNotReadableException::class)
     @ResponseStatus(BAD_REQUEST)
     @ResponseBody
-    fun processHttpMessageNotReadableException(ex: HttpMessageNotReadableException): ResponseEntity<Error> {
+    fun processHttpMessageNotReadableException(ex: HttpMessageNotReadableException): ResponseEntity<ErrorResponse> {
         log.warn(ex.cause?.message)
         return ResponseEntity
             .status(BAD_REQUEST)
             .body(
-                Error(
+                ErrorResponse(
                     type = "IllegalParameters",
                     message = ex.cause?.message
                 )

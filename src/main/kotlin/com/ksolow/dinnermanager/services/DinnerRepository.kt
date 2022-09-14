@@ -13,7 +13,7 @@ class DinnerRepository(@Autowired val mongoClient: MongoClient) {
     }
 
     fun addDish(dish: DishRequest) =
-        db.getCollection<DishRequest>()
+        db.getCollection<DishRequest>("dish")
             .insertOne(dish)
             .insertedId
 
