@@ -20,6 +20,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    implementation("org.json:json:20200518")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     implementation("org.litote.kmongo:kmongo-native:4.5.0") {
         exclude(group = "org.jetbrains.kotlin", module = "kotlin-reflect")

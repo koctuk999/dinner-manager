@@ -1,16 +1,10 @@
 package com.ksolow.dinnermanager.entity
 
-data class Dish(
+data class DishResponse(
+    val id: String,
     val title: String,
     val description: String?,
     val dishTime: String,
     val recipe: String,
     val ingredients: List<String>,
 )
-
-enum class DishTime(val value: String) {
-    BREAKFAST("Завтрак"),
-    LUNCH("Обед"),
-    DINNER("Ужин"),
-    BONUS("Дополнительно")
-}
