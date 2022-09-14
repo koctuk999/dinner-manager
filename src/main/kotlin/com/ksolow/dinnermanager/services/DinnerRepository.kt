@@ -1,6 +1,6 @@
 package com.ksolow.dinnermanager.services
 
-import com.ksolow.dinnermanager.entity.Dish
+import com.ksolow.dinnermanager.entity.DishRequest
 import com.mongodb.client.MongoClient
 import org.litote.kmongo.getCollection
 import org.springframework.beans.factory.annotation.Autowired
@@ -12,8 +12,10 @@ class DinnerRepository(@Autowired val mongoClient: MongoClient) {
         mongoClient.getDatabase("dinner-manager")
     }
 
-    fun addDish(dish: Dish) {
-        db.getCollection<Dish>().insertOne(dish)
-    }
+    fun addDish(dish: DishRequest) =
+        db.getCollection<DishRequest>()
+            .insertOne(dish)
+            .insertedId
+
 
 }
